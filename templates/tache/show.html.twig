@@ -1,0 +1,58 @@
+{% include "layout/header.html.twig" %}
+{% block body %}
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Tache</b> </h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                        
+                    <div class="input-group-append">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover ">
+                  <thead>
+                     <tr>
+                        <td>Id</td>
+                        <td>{{ tache.id }}</td>
+                    </tr>
+                    <tr>
+                        <td>Nom du tache</td>
+                        <td>{{ tache.NomTache }}</td>
+                    </tr>
+                    <tr>
+                        <td>Debut</td>
+                        <td>{{ tache.debut ? tache.debut|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <td>Fin</td>
+                        <td>{{ tache.fin ? tache.fin|date('Y-m-d') : '' }}</td>
+                    </tr>
+                  <td><a href="{{ path('app_tache_index') }}"><button  type="submit" class="btn btn-danger btn-lg">Retour</button></a>
+                  <a href="{{ path('app_tache_edit', {'id': tache.id}) }}"><button  type="submit" class="btn btn-warning btn-lg">Modifier</button></a>
+                  </tr>
+                 
+                  
+                      
+                    </thead>
+                    
+                </table>
+                
+              </div>
+              
+              
+            </div>
+        </div>
+        </div>
+</div>
+</div>
+{% endblock %}
+{% include "layout/footer.html.twig" %}

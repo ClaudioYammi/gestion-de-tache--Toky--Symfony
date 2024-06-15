@@ -1,0 +1,58 @@
+{% include "layout/header.html.twig" %}
+{% block body %}
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Tache</b> </h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                        
+                    <div class="input-group-append">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover ">
+                  <thead>
+                    
+                    
+                        <tr>
+                            <td>Id</td>
+                            <td>{{ liste_tache.id }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nom_tache</td>
+                            <td>{{ liste_tache.nomTache }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date_ajout</td>
+                            <td>{{ liste_tache.dateAjout ? liste_tache.dateAjout|date('Y-m-d') : '' }}</td>
+                        </tr>
+                    
+                  <td><a href="{{ path('app_liste_tache_index') }}"><button  type="submit" class="btn btn-danger btn-lg">Retour</button></a>
+                  <a href="{{ path('app_liste_tache_edit', {'id': liste_tache.id}) }}"><button  type="submit" class="btn btn-warning btn-lg">Modifier</button></a>
+                  </tr>
+                 
+                  
+                      
+                    </tdead>
+                    
+                </table>
+                
+              </div>
+              
+              
+            </div>
+        </div>
+        </div>
+</div>
+</div>
+ {{ include('user/_delete_form.html.twig') }}
+{% endblock %}
+{% include "layout/footer.html.twig" %}

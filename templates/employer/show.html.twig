@@ -1,0 +1,75 @@
+
+
+
+
+
+{% include "layout/header.html.twig" %}
+{% block body %}
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Employer <b>{{ employer.nomEmployer }}</b> </h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                        
+                    <div class="input-group-append">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover ">
+                  <thead>
+                    
+                    
+                        <tr>
+                            <td>Id</td>
+                            <td>{{ employer.id }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nom_employer</td>
+                            <td>{{ employer.nomEmployer }}</td>
+                        </tr>
+                        <tr>
+                            <td>Poste</td>
+                            <td>{{ employer.Poste }}</td>
+                        </tr>
+                        <tr>
+                            <td>Adresse</td>
+                            <td>{{ employer.adresse }}</td>
+                        </tr>
+                        <tr>
+                            <td>Telephone</td>
+                            <td>{{ employer.telephone }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date_ajout</td>
+                            <td>{{ employer.dateAjout ? employer.dateAjout|date('Y-m-d') : '' }}</td>
+                        </tr>
+                    </tbody>
+                  <td><a href="{{ path('app_employer_index') }}"><button  type="submit" class="btn btn-danger btn-lg">Retour</button></a>
+                  <a href="{{ path('app_employer_edit', {'id': employer.id}) }}"><button  type="submit" class="btn btn-warning btn-lg">Modifier</button></a>
+                  </tr>
+                 
+                  
+                      
+                    </thead>
+                    
+                </table>
+                
+              </div>
+              
+              
+            </div>
+        </div>
+        </div>
+</div>
+</div>
+ {{ include('user/_delete_form.html.twig') }}
+{% endblock %}
+{% include "layout/footer.html.twig" %}

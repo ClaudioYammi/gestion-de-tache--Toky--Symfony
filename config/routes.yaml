@@ -1,0 +1,6 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+ism:
+    path: /bienvenue
+    controller: App\Controller\BienvenueController::sayWelcome

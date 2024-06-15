@@ -1,0 +1,62 @@
+{% include "layout/header.html.twig" %}
+{% block body %}
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Utilisateur <b>{{user.username}}</b></h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                        
+                    <div class="input-group-append">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover ">
+                  <thead>
+                    
+                   
+                        <tr>
+                            <td>Id</td>
+                            <td>{{ user.id }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nom d'utilisateur</td>
+                            <td>{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>Roles</td>
+                            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                        </tr>
+                        <tr>
+                            <td>Mot de passe</td>
+                            <td>{{ user.password }}</td>
+                        </tr>
+                    </tbody>
+                  <td><a href="{{ path('app_user_index') }}"><button  type="submit" class="btn btn-danger btn-lg">Retour</button></a>
+                  
+                  </tr>
+                 
+                  
+                      
+                    </thead>
+                    
+                </table>
+                
+              </div>
+              
+              
+            </div>
+        </div>
+        </div>
+</div>
+</div>
+ {{ include('user/_delete_form.html.twig') }}
+{% endblock %}
+{% include "layout/footer.html.twig" %}

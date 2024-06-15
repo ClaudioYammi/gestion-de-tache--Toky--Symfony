@@ -1,0 +1,109 @@
+{% include "layout/header.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/chart.js/Chart.min.css') }}">
+{% endblock %}
+{% block body %}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    <div class="container-fluid">
+    <h1>Statistque</h1>
+    
+    <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{count}}</h3>
+
+                    <p>Nombre d'employer</p>
+                </div>
+                <div class="icon">
+                    <i class="nav-icon fas fa-users"></i>
+                </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{countListe}}</h3>
+
+                    <p>Nombre de tache</p>
+                </div>
+                <div class="icon">
+                    <i class="nav-icon fas fa-tasks"></i>
+                </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{countUser}}</h3>
+
+                    <p>Utilisateurs</p>
+                </div>
+                <div class="icon">
+                    <i class="nav-icon fas fa-user"></i>
+                </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3></h3>
+
+                    <p>Nombre de tache a faire</p>
+                </div>
+                <div class="icon">
+                    <i class="nav-icon fas fa-drafting-compass"></i>
+                </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+    <h1>Graphique</h1>
+            <div class="container">
+                    <canvas id="chart" width="400" height="200" ></canvas>
+
+                </div>
+            
+    </div>
+    
+    
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{{ asset('adminlte/plugins/chart.js/Chart.min.js') }}"></script>
+<script>
+let chart = document.querySelector("#chart")
+let chartGraphe = new Chart(chart,{
+    type:"doughnut",
+    data:{
+        labels: ['Employer','liste de tache','utilisateur','Tache a faire'],
+        datasets: [{
+            label: "Recupération",
+            data:[1,2,3,4],
+            backgroundColor: ['blue','red','yellow','green']
+    }]
+    }
+})
+</script>
+</section>
+    </div>
+    </section>
+    </div>
+    
+{% endblock %}
+{% include "layout/footer.html.twig" %}
+
+

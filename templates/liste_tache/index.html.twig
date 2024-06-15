@@ -1,0 +1,95 @@
+{% include "layout/header.html.twig" %}
+
+
+
+{% block body %}
+<div class="content-wrapper">
+    <section class="content-header">
+    <div class="container-fluid">
+    <div class="row">
+              <div class="col-12">
+              {% for message in app.flashes('success_message') %}
+                  <div class="alert alert-success alert-dismissible fade show"> {{message}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                    <span arial-hidden="true"></span>
+                  </button>
+              </div>
+              {% endfor %}
+                <div class="card">
+                  <div class="card-header">
+                    
+                    <h3 class="card-title">Les Taches</h3>
+                    
+                    <div class="card-tools">
+                      <div class="input-group input-group-sm" style="width: 150px;">
+                            
+                        <div class="input-group-append">
+                        
+                        </div>
+                        
+                               <a href="{{ path('app_liste_tache_new') }}"><button class="btn btn-success"><i class="fas fa-plus"></i> </button></a>
+                        
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+                  
+                  <!-- /.card-header -->
+                  <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                      <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom du tache</th>
+                            <th>Date d'ajout</th>
+                            <th>actions</th>
+                        </tr>
+                      </thead>
+                
+                      <tbody>
+
+                       {% for liste_tache in liste_taches %}
+                        <tr>
+                            <td>{{ liste_tache.id }}</td>
+                            <td>{{ liste_tache.nomTache }}</td>
+                            <td>{{ liste_tache.dateAjout ? liste_tache.dateAjout|date('Y-m-d') : '' }}</td>
+                            <td>
+                              <div class="row p-0">
+                                <div class="col-3">
+                                <a href="{{ path('app_liste_tache_show', {'id': liste_tache.id}) }}"><button class="btn btn-primary"><i class="fas fa-eye"></i> </button></a>
+
+                                </div>
+                                <div class="col-3">
+                                  <a href="{{ path('app_liste_tache_edit', {'id': liste_tache.id}) }}"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></a>
+                                </div>
+                                <div class="col-3">
+                                  <form method="post" action="{{ path('app_liste_tache_delete', {'id': liste_tache.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ liste_tache.id) }}">
+                                    <button class="btn btn-danger"><i class="fas fa-trash"></i> </button>
+                                </form>
+                                </div>
+                              </div>                               
+                                
+                              </td>
+
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="6">no records found</td>
+                        </tr>
+                    {% endfor %}
+                      </tbody>
+                     
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+              </div>
+            </div>
+            </div>
+ </section>
+ </div>        
+{% endblock %} 
+{% include "layout/footer.html.twig" %}

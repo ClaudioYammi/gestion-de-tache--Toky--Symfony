@@ -1,0 +1,72 @@
+{% include "layout/header.html.twig" %}
+{% block body %}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+
+<section class="content">
+      <div class="container-fluid">
+    {# <h1>Register</h1> #}
+
+</div>
+                <!-- /.card -->
+               
+
+
+
+
+
+
+<div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Creer un utilisateur</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              {{ form_start(registrationForm) }}
+                <div class="card-body">
+                  <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            {{ form_row(registrationForm.username, {  label: 'Utilisateur'}) }}
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                   <div class="row">
+                    <div class="col-6">
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Password'
+                        }) }}
+                    </div>
+                   </div>
+                  </div>
+                  <div class="form-group">
+                   {{ form_row(registrationForm.accepter) }}
+                  </div>
+                  
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                   <button type="submit" class="btn btn-primary">Register</button>
+                
+                <a href="{{ path('app_user_index') }}"> <button type="button" class="btn btn-danger">Retour</button></a>
+                </div>
+            {{ form_end(registrationForm) }}
+            </div>
+            <!-- /.card -->
+
+    </section>
+    </div>
+    </div>
+    
+
+       {% endblock %}     
+ {% include "layout/footer.html.twig" %}    
